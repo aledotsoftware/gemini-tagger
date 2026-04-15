@@ -1,4 +1,4 @@
-# Gemini Tag Selector v1.1
+# Open Gemini Tag Selector v1.1
 
 Extensión para Google Gemini que inyecta una barra de etiquetas de contexto personalizables sobre el área de chat, optimizando el flujo de trabajo técnico.
 
@@ -27,4 +27,3 @@ Extensión para Google Gemini que inyecta una barra de etiquetas de contexto per
 - `popup.html/js`: Interfaz de usuario para la gestión dinámica de etiquetas.
 
 ---
-**Diseñado para entornos de desarrollo de alto rendimiento por Tudex Networks.**
