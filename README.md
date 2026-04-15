@@ -18,7 +18,7 @@ Extensión para Google Gemini que inyecta una barra de etiquetas de contexto per
 ## ⚙️ Configuración de Tags
 1. Haz clic en el ícono de la extensión en la barra de Chrome.
 2. En el área de texto, ingresa tus tags separados por comas.
-   * Ejemplo: `[general], [éterOS], [Wisely], [Jules], [debug]`
+   * Ejemplo: `[general], [codigo], [trabajo], [investigacion]`
 3. Presiona **Guardar y Recargar**. La pestaña de Gemini se actualizará con tus nuevos tags.
 
 ## 📝 Estructura de Archivos
