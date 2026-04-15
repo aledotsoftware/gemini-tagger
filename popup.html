@@ -6,212 +6,130 @@
     <title>Gemini Tag Config</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: rgba(30, 41, 59, 0.7);
-            --accent-primary: #8b5cf6;
-            --accent-secondary: #ec4899;
-            --text-main: #f8fafc;
+            --bg: #0f172a;
+            --card: #1e293b;
+            --accent: #3b82f6;
+            --text: #f8fafc;
             --text-dim: #94a3b8;
-            --border-color: rgba(255, 255, 255, 0.1);
-            --gradient: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+            --border: rgba(255, 255, 255, 0.1);
         }
 
         body {
-            width: 380px;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            width: 300px;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
             padding: 16px;
         }
 
         .container {
-            width: 100%;
-            background: var(--card-bg);
-            backdrop-filter: blur(16px);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 24px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 0.4s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        header {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .logo-circle {
-            width: 48px;
-            height: 48px;
-            background: var(--gradient);
-            border-radius: 50%;
-            margin: 0 auto 12px;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+            flex-direction: column;
+            gap: 12px;
         }
 
-        .logo-circle svg {
-            width: 24px;
-            height: 24px;
-            fill: white;
-        }
-
-        h1 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            letter-spacing: -0.025em;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        h3 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
         }
 
         p {
-            font-size: 0.875rem;
-            color: var(--text-dim);
-            margin-top: 4px;
-        }
-
-        .input-group {
-            margin-bottom: 24px;
-        }
-
-        label {
-            display: block;
+            margin: 0;
             font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
             color: var(--text-dim);
-            margin-bottom: 8px;
-            padding-left: 4px;
+            line-height: 1.4;
         }
 
         textarea {
             width: 100%;
-            height: 100px;
-            background: rgba(15, 23, 42, 0.5);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 12px;
-            color: var(--text-main);
-            font-size: 0.875rem;
+            height: 90px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px;
+            color: var(--text);
+            font-size: 0.8125rem;
             resize: none;
             outline: none;
-            transition: all 0.2s ease;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
         }
 
         textarea:focus {
-            border-color: var(--accent-primary);
-            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
-        }
-
-        .preview-label {
-            margin-top: 16px;
+            border-color: var(--accent);
         }
 
         #tagPreview {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 8px;
-            min-height: 40px;
+            gap: 4px;
+            min-height: 20px;
         }
 
         .tag-chip {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
-            border-radius: 99px;
-            padding: 4px 12px;
-            font-size: 0.75rem;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 4px;
+            padding: 2px 8px;
+            font-size: 0.7rem;
+            color: var(--accent);
             font-weight: 500;
-            color: var(--text-dim);
         }
 
-        button#saveBtn {
+        button {
             width: 100%;
-            background: var(--gradient);
+            background: var(--accent);
             border: none;
-            border-radius: 12px;
-            padding: 14px;
+            border-radius: 8px;
+            padding: 10px;
             color: white;
             font-weight: 600;
-            font-size: 0.9375rem;
+            font-size: 0.875rem;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+            transition: opacity 0.2s;
+            margin-top: 4px;
         }
 
-        button#saveBtn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+        button:hover {
+            opacity: 0.9;
         }
 
-        button#saveBtn:active {
-            transform: translateY(0);
+        button:active {
+            transform: scale(0.98);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
 
         footer {
-            margin-top: 20px;
+            margin-top: 8px;
             text-align: center;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: var(--text-dim);
-            opacity: 0.6;
+            opacity: 0.5;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <div class="logo-circle">
-                <svg viewBox="0 0 24 24">
-                    <path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z" />
-                </svg>
-            </div>
-            <h1>Gemini Tag Selector</h1>
-            <p>Personaliza tus atajos de contexto</p>
-        </header>
+        <h3>Configurar Tags</h3>
+        <p>Separa los tags por comas (ej: [general], [codigo], [trabajo])</p>
+        
+        <textarea id="tagInput" placeholder="[general], [codigo]..."></textarea>
+        
+        <div id="tagPreview"></div>
 
-        <div class="input-group">
-            <label for="tagInput">Editar Etiquetas (separadas por comas)</label>
-            <textarea id="tagInput" placeholder="Ej: [general], [debug], [Wisely]"></textarea>
-            
-            <label class="preview-label">Vista Previa</label>
-            <div id="tagPreview"></div>
-        </div>
-
-        <button id="saveBtn">
-            <svg style="width:18px;height:18px" viewBox="0 0 24 24">
-                <path fill="currentColor" d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" />
-            </svg>
-            Guardar y Recargar
-        </button>
-
-        <footer>
-            Tudex Networks &copy; 2026
-        </footer>
+        <button id="saveBtn">Guardar y Recargar</button>
+        
+        <footer>Tudex Networks &copy; 2026</footer>
     </div>
     <script src="popup.js"></script>
 </body>
