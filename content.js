@@ -74,7 +74,7 @@ function injectTagBar() {
     container.appendChild(label);
 
     chrome.storage.sync.get(['customTags'], (res) => {
-        const tagStr = res.customTags || "[general], [éterOS], [Wisely], [Jules]";
+        const tagStr = res.customTags || "[general], [codigo], [trabajo], [investigacion]";
         const tags = tagStr.split(',').map(t => t.trim()).filter(t => t.length > 0);
 
         tags.forEach(tag => {
