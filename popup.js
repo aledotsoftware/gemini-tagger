@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const tags = (value || '').split(',')
             .map(t => t.trim())
             .filter(t => t.length > 0);
-        
+
         tags.forEach(tag => {
             const chip = document.createElement('span');
             chip.className = 'tag-chip';
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Cargar tags guardados
     chrome.storage.sync.get(['customTags'], (res) => {
-        const defaultTags = "[general], [éterOS], [Wisely], [Jules]";
+        const defaultTags = "[general], [codigo], [trabajo], [investigacion]";
         const tags = res.customTags || defaultTags;
         if (tagInput) tagInput.value = tags;
         updatePreview(tags);
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             saveBtn.disabled = true;
             const originalText = saveBtn.innerHTML;
             saveBtn.innerHTML = 'Guardando...';
-            
+
             chrome.storage.sync.set({ customTags: tagInput.value }, () => {
                 chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
                     // Verificación segura de la URL del tab
